@@ -13,7 +13,7 @@ pipeline {
       stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("shubhammote022/first_docker_repo:v1")
+                    myapp = docker.build -t("shubhammote022/first_docker_repo:v1")
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
       stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'jenkins') {
                             myapp.push("latest")
                             myapp.push("${env.BUILD_ID}")
                     }
