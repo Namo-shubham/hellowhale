@@ -13,7 +13,7 @@ pipeline {
       stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build -t("shubhammote022/first_docker_repo:v1")
+                    myapp = docker.build -t "shubhammote022/first_docker_repo:v1"
                 }
             }
         }
